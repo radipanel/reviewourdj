@@ -169,6 +169,48 @@
 
 				<p><strong>Feel like commenting on our presenting team here? Want to vent your frustration?</strong> Use the form below to submit your own review of any one of our DJ's!</p>
 
+				<form action="" method="post">
+			
+				<label for="habbo">Habbo name:</label>
+				<input type="text" name="habbo" id="habbo" maxlength="255" />
+				
+				<br /><br />
+					
+				<label for="dj">DJ:</label>
+				<select name="dj" id="dj">
+
+					<?php
+
+						$users = $db->query( "SELECT * FROM users" );
+
+						while( $array = $db->assoc( $users ) ) {
+
+					?>
+
+					<option value="<?php echo $array['id']; ?>">
+						DJ <?php echo $array['username']; ?>
+					</option>
+
+
+					<?php
+
+						}
+
+					?>
+
+				</select>
+				
+				<br /><br />
+				
+				<label for="review">Review:</label>
+				<textarea name="review" id="review" rows="10"></textarea>
+				
+				<br /><br />
+				
+				<input class="button" type="submit" name="submit" value="Submit" />
+				
+			</form>
+
 			</div>
 
 		</div>
