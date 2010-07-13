@@ -1,3 +1,8 @@
+<?php
+
+	if( !preg_match( "/index.php/i", $_SERVER['PHP_SELF'] ) ) { die(); }
+
+?>
 <form action="" method="post" id="viewReviews">
 
 	<div class="box">
