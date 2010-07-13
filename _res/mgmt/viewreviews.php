@@ -12,8 +12,19 @@
 			// Check if a user has been selected
 			if ( $_POST['submit'] ) {
 
-				// First we get their ID from the POST submission
+				// First we get their check their ID from the POST submission, but we clean it first (Thanks Yutes)
 				$id = $_POST['username'];
+
+				if ( !is_numeric( $id ) {
+
+					echo "<div class=\"square bad\" style=\"margin-bottom: 0px;\">";
+					echo "<strong>Sorry</strong>";
+					echo "<br />";
+					echo "The id submitted is not valid. Please go back and try again.";
+					echo "</div>";
+
+					die();
+				}
 
 				// Then we turn that into a username!
 				$username = $db->query( "SELECT username FROM users WHERE id='{$id}'" );
