@@ -162,7 +162,39 @@
 						// The form has been submitted
 						try {
 							
-							// Do my stuff once I've figured out a database schema
+							// Right, we have their data, so we check it and clean it up
+							$habbo   = $core->clean( $_POST['habbo'] );
+							$dj      = $core->clean( $_POST['dj'] );
+							$review = $core->clean( $_POST['review'] );
+							$ip      = $_SERVER['REMOTE_ADDR'];
+							$time    = time();
+
+							// Check for blank fields
+							if ( !$habbo or !is_numeric( $dj) or !$review ) {
+
+								// They have a problem
+								throw new Exception( "All fields are required!" );
+							}
+							else {
+
+								// Everything is fine, so now to add our cleaned data to the database!
+								$db->query( "INSERT INTO reviews VALUES (NULL, '{$habbo}', '{$dj}', '{$review}', '{$ip}', '{$time}');" );
+
+								echo "<div class=\"good\">";
+								echo "<strong>Success</strong>";
+								echo "<br />";
+								echo "Your review has been successfully submitted!";
+								echo "</div>";
+							}
+						}
+						catch( Exception $e ) {
+					
+							echo "<div class=\"bad\">";
+							echo "<strong>Error</strong>";
+							echo "<br />";
+							echo $e->getMessage();
+							echo "</div>";
+					
 						}
 					}
 				?>
@@ -171,7 +203,7 @@
 
 				<form action="" method="post">
 			
-				<label for="habbo">Habbo name:</label>
+				<label for="habbo">Habbo Name:</label>
 				<input type="text" name="habbo" id="habbo" maxlength="255" />
 				
 				<br /><br />
