@@ -199,7 +199,7 @@
 					}
 				?>
 
-				<p><strong>Feel like commenting on our presenting team here? Want to vent your frustration?</strong> Use the form below to submit your own review of any one of our DJ's!</p>
+				<p><strong>Feel like commenting on our presenting team? Want to vent your frustration about a DJ?</strong> Use the form below to submit your own review of any one of our DJ's!</p>
 
 				<form action="" method="post">
 			
