@@ -21,4 +21,10 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `ip` varchar(15) collate latin1_general_ci NOT NULL,
   `time` int(255) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Add extra menu items
+--
+INSERT INTO `menu` (`id`, `text`, `url`, `resource`, `usergroup`, `protected`, `weight`) VALUES
+(NULL, 'View DJ reviews', 'mgmt.viewReviews', '_res/mgmt/viewreviews.php', '4', '0', 0);
