@@ -15,7 +15,7 @@
 				// First we get their check their ID from the POST submission, but we clean it first (Thanks Yutes)
 				$id = $_POST['username'];
 
-				if ( !is_numeric( $id ) {
+				if ( !is_numeric( $id ) ) {
 
 					echo "<div class=\"square bad\" style=\"margin-bottom: 0px;\">";
 					echo "<strong>Sorry</strong>";
